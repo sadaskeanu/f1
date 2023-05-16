@@ -1,74 +1,68 @@
+// import React from "react";
+// import { useState, useEffect } from "react";
+// import "./App.css";
+// import { ChampionData } from "./types/ChampionCardData/ChampionData";
+// import { ListOfChampions } from "./types/ListOfChampionsData/ListOfChampionsData";
+// import ChampionsList from "./components/ListOfChampions/ListOfChampions";
+// import ChampionCard from "./components/ChampionCard/ChampoinCard";
+// import { getWorldChampions } from "./api/GetChampions";
+// import { getListChampions } from "./api/GetChampions";
 import React from "react";
-import { useState, useEffect } from "react";
-import "./App.css";
-import axios from "axios";
-import { ChampionData } from "./types/ChampionCardData/ChampionData";
-import ChampionCard from "./components/ChampionCard/ChampoinCard";
-
-const YEARS = [
-  "2005",
-  "2006",
-  "2007",
-  "2008",
-  "2009",
-  "2010",
-  "2011",
-  "2012",
-  "2013",
-  "2014",
-  "2015",
-  "2016",
-  "2017",
-  "2018",
-  "2019",
-  "2020",
-  "2021",
-  "2022",
-  "2023",
-];
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import WorldsChampions from "./pages/WorldsChampions";
+import Champions from "./pages/ChampionsList";
 
 function App() {
-  let [champions, setChampion] = useState<ChampionData[] | null>(null);
+  //   const [isLoading, setIsLoading] = useState(false);
+  //   const [hasError, setHasError] = useState(false);
+  //   let [worldChampions, setWorldChampions] = useState<ChampionData[] | null>(
+  //     null
+  //   );
+  //   let [champions, setChampions] = useState<ListOfChampions[] | null>(null);
 
-  const seasons = YEARS;
+  //   useEffect(() => {
+  //     setIsLoading(true);
 
-  const url = "https://ergast.com/api/f1/";
+  //     Promise.all([getWorldChampions(), getListChampions()])
+  //       .then(([worldChampions, champions]) => {
+  //         setWorldChampions(worldChampions);
+  //         setChampions(champions);
+  //       })
+  //       .then(() => {
+  //         setIsLoading(false);
+  //       })
+  //       .catch(() => {
+  //         setHasError(true);
+  //       });
+  //   }, []);
 
-  const mainUrl = seasons.map(
-    (season) => `${url}${season}/driverStandings/1.json`
-  );
+  //   console.log(champions);
 
-  // console.log(mainUrl);
+  //   if (!worldChampions || !champions || isLoading) return <div>Loading...</div>;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const responses = await Promise.all(
-          mainUrl.map((url) => axios.get<ChampionData>(url))
-        );
-
-        const championData = responses.map((response) => response.data);
-        setChampion(championData);
-        console.log(championData);
-        console.log(responses);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  if (!champions) return <div>Loading</div>;
+  //   if (hasError) return <div>Oops something went wrong!</div>;
 
   return (
-    <>
-      {champions.map((champion) => (
-        <div className="App">
-          <ChampionCard champion={champion} />
-        </div>
-      ))}
-    </>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<WorldsChampions />} />
+          <Route path="/2005" element={<Champions />} />
+        </Routes>
+      </Router>
+    </div>
+    // <>
+    //   {worldChampions.map((worldChampion) => (
+    //     <div className="App">
+    //       <ChampionCard champion={worldChampion} />
+    //     </div>
+    //   ))}
+    //   {champions.map((champion) => (
+    //     <div className="App">
+    //       <ChampionsList list={champion} />
+    //     </div>
+    //   ))}
+    // </>
   );
 }
 

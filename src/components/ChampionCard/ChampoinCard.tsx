@@ -1,8 +1,9 @@
 import { ChampionData } from "../../types/ChampionCardData/ChampionData";
+import styles from "./ChampionCard.module.css";
 
 export default function ChampionCard(props: { champion: ChampionData }) {
   return (
-    <div>
+    <div className={styles.card}>
       <div>
         season: {props.champion.MRData.StandingsTable.StandingsLists[0].season}
       </div>
