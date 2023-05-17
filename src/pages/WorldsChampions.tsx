@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { ChampionData } from "../types/ChampionCardData/ChampionData";
 import ChampionCard from "../components/ChampionCard/ChampoinCard";
 import { getWorldChampions } from "../api/GetChampions";
+import Loader from "../components/Loader/Loader";
+import Error from "../components/Error/Error";
 
 export default function WorldsChampions() {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,9 +28,9 @@ export default function WorldsChampions() {
       });
   }, []);
 
-  if (!worldChampions || isLoading) return <div>Loading...</div>;
+  if (!worldChampions || isLoading) return <Loader />;
 
-  if (hasError) return <div>Oops something went wrong!</div>;
+  if (hasError) return <Error />;
 
   return (
     <>

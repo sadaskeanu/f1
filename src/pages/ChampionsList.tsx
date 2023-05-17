@@ -3,6 +3,9 @@ import { ListOfChampions } from "../types/ListOfChampionsData/ListOfChampionsDat
 import ChampionsList from "../components/ListOfChampions/ListOfChampions";
 import { getListChampions } from "../api/GetChampions";
 import { useNavigate, useParams } from "react-router-dom";
+import BackLink from "../components/BackLink/BackLink";
+import Loader from "../components/Loader/Loader";
+import Error from "../components/Error/Error";
 
 export default function Champions() {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,9 +34,14 @@ export default function Champions() {
       });
   }, []);
 
-  if (!champions || isLoading) return <div>Loading...</div>;
+  if (!champions || isLoading) return <Loader />;
 
-  if (hasError) return <div>Oops something went wrong!</div>;
+  if (hasError) return <Error />;
 
-  return <ChampionsList list={champions} />;
+  return (
+    <div>
+      <BackLink />
+      <ChampionsList list={champions} />
+    </div>
+  );
 }
