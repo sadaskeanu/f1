@@ -16,11 +16,8 @@ export const getWorldChampions = () => {
   );
 };
 
-export const getListChampions = () => {
-  const seasons = getYearsRange(2005);
-  const urls = seasons.map((season) => `${API_URL}/${season}/results/1.json`);
+export const getListChampions = (season: string) => {
+  const url = `${API_URL}/${season}/results/1.json`;
 
-  return Promise.all(urls.map((url) => axios.get<ListOfChampions>(url))).then(
-    (result) => result.map((item) => item.data)
-  );
+  return axios.get<ListOfChampions>(url).then((result) => result.data);
 };

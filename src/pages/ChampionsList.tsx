@@ -2,16 +2,24 @@ import { useState, useEffect } from "react";
 import { ListOfChampions } from "../types/ListOfChampionsData/ListOfChampionsData";
 import ChampionsList from "../components/ListOfChampions/ListOfChampions";
 import { getListChampions } from "../api/GetChampions";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Champions() {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
-  let [champions, setChampions] = useState<ListOfChampions[] | null>(null);
+  let [champions, setChampions] = useState<ListOfChampions | null>(null);
+  let { season } = useParams<{ season: string }>();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!season) {
+      navigate("/");
+      return;
+    }
+
     setIsLoading(true);
 
-    getListChampions()
+    getListChampions(season)
       .then((champions) => {
         setChampions(champions);
       })
@@ -27,13 +35,5 @@ export default function Champions() {
 
   if (hasError) return <div>Oops something went wrong!</div>;
 
-  return (
-    <>
-      {champions.map((champion) => (
-        <div className="App">
-          <ChampionsList list={champion} />
-        </div>
-      ))}
-    </>
-  );
+  return <ChampionsList list={champions} />;
 }

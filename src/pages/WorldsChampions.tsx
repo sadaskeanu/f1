@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ChampionData } from "../types/ChampionCardData/ChampionData";
 import ChampionCard from "../components/ChampionCard/ChampoinCard";
 import { getWorldChampions } from "../api/GetChampions";
@@ -32,9 +33,12 @@ export default function WorldsChampions() {
   return (
     <>
       {worldChampions.map((worldChampion) => (
-        <div className="App">
+        <Link
+          className="App"
+          to={`/season/${worldChampion.MRData.StandingsTable.StandingsLists[0].season}`}
+        >
           <ChampionCard champion={worldChampion} />
-        </div>
+        </Link>
       ))}
     </>
   );
