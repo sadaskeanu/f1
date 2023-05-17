@@ -1,4 +1,4 @@
-export interface ChampionData {
+export interface WorldChampionDataApiResponse {
   MRData: {
     StandingsTable: {
       StandingsLists: {
@@ -21,4 +21,13 @@ export interface ChampionData {
       }[];
     };
   };
+}
+export interface WorldChampionData {
+  id: string;
+  season: string;
+  points: string;
+  name: string;
+  familyName: string;
+  nationality: string;
+  team: string;
 }

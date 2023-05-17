@@ -1,4 +1,4 @@
-export interface ListOfChampions {
+export interface RaceChampionsDataApiResponse {
   MRData: {
     xmlns: string;
     series: string;
@@ -68,4 +68,16 @@ export interface ListOfChampions {
       }[];
     };
   };
+}
+
+export interface RaceChampionsData {
+  season: string;
+  races: {
+    driverId: string
+    race: string;
+    driverName: string;
+    driverFamilyName: string;
+    nationality: string;
+    team: string;
+  }[];
 }
