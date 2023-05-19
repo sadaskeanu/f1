@@ -28,6 +28,5 @@ export interface WorldChampionData {
   points: string;
   name: string;
   familyName: string;
-  nationality: string;
   team: string;
 }

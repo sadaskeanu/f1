@@ -1,6 +1,6 @@
 import { WorldChampionData } from "../../types/ChampionCardData/WorldChampionData";
 import Card from "../Card/Card";
-import styles from "./WorldChampionCard.module.css";
+import styles from "../ListOfChampions/RaceWinners.module.css";
 
 export default function WorldChampionCard({
   champion,
@@ -13,9 +13,9 @@ export default function WorldChampionCard({
         season={champion.season}
         name={champion.name}
         familyName={champion.familyName}
-        nationality={champion.nationality}
         team={champion.team}
         points={champion.points}
+        className={styles.card}
       />
     </div>
   );

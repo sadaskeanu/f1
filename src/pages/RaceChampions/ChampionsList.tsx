@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { RaceChampionsData } from "../types/RaceChampionsData/RaceChampionsData";
-import ChampionsList from "../components/ListOfChampions/ListOfChampions";
-import { getListChampions, getWorldChampion } from "../api/GetChampions";
+import { RaceChampionsData } from "../../types/RaceChampionsData/RaceChampionsData";
+import ChampionsList from "../../components/ListOfChampions/ListOfChampions";
+import { getListChampions, getWorldChampion } from "../../api/GetChampions";
 import { useNavigate, useParams } from "react-router-dom";
-import BackLink from "../components/BackLink/BackLink";
-import Loader from "../components/Loader/Loader";
-import Error from "../components/Error/Error";
-import { WorldChampionData } from "../types/ChampionCardData/WorldChampionData";
+import BackLink from "../../components/BackLink/BackLink";
+import Loader from "../../components/Loader/Loader";
+import Error from "../../components/Error/Error";
+import { WorldChampionData } from "../../types/ChampionCardData/WorldChampionData";
 
 export default function Champions() {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +46,11 @@ export default function Champions() {
   return (
     <div>
       <BackLink />
-      <ChampionsList champions={champions} worldChampionId={worldChampion.id} isHighlighted={true} />
+      <ChampionsList
+        champions={champions}
+        worldChampionId={worldChampion.id}
+        isHighlighted={true}
+      />
     </div>
   );
 }

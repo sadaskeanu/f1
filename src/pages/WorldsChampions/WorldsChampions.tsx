@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { WorldChampionData } from "../types/ChampionCardData/WorldChampionData";
-import WorldChampionCard from "../components/WorldChampionCard/WorldChampionCard";
-import { getWorldChampions } from "../api/GetChampions";
-import Loader from "../components/Loader/Loader";
-import Error from "../components/Error/Error";
+import { WorldChampionData } from "../../types/ChampionCardData/WorldChampionData";
+import WorldChampionCard from "../../components/WorldChampionCard/WorldChampionCard";
+import { getWorldChampions } from "../../api/GetChampions";
+import Loader from "../../components/Loader/Loader";
+import Error from "../../components/Error/Error";
+import styles from "../WorldsChampions/WorldsChampions.module.css";
 
 export default function WorldsChampions() {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,8 +35,9 @@ export default function WorldsChampions() {
 
   return (
     <>
+      <h1 className={styles.header}>F1 WORLD CHAMPIONS</h1>
       {worldChampions.map((worldChampion) => (
-        <Link className="App" to={`/season/${worldChampion.season}`}>
+        <Link to={`/season/${worldChampion.season}`}>
           <WorldChampionCard champion={worldChampion} />
         </Link>
       ))}

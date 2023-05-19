@@ -21,9 +21,6 @@ export function mapWorldChampionApiResponse(
     familyName:
       data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Driver
         .familyName,
-    nationality:
-      data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
-        .Constructors[0].nationality,
     team: data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]
       .Constructors[0].name,
   };
@@ -39,7 +36,6 @@ export function mapRaceChampionsApiResponse(
       race: race.raceName,
       driverName: race.Results[0].Driver.givenName,
       driverFamilyName: race.Results[0].Driver.familyName,
-      nationality: race.Results[0].Driver.nationality,
       team: race.Results[0].Constructor.name,
     })),
   };

@@ -1,19 +1,17 @@
-.row {
+.wrap {
+  margin-top: 20px;
+  margin-left: 15px;
   display: flex;
   flex-direction: row;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  margin-left: 100px;
+.link {
+  margin-top: 10px;
+  font-weight: 500;
 }
 
-.sideText {
-  font-size: 15px;
-  font-weight: 500;
-  margin: 5px;
-  color: rgb(29, 24, 24);
+.link:hover {
+  color: rgb(173, 30, 30);
 }
 
 .arrow {
@@ -27,9 +25,9 @@
   transition: all 200ms ease;
 }
 
-.right {
-  right: 0;
-  transform: translate3d(0, -50%, 0) rotate(45deg);
+.left {
+  left: 0;
+  transform: translate3d(0, -50%, 0) rotate(-135deg);
 }
 
 .arrow:hover {

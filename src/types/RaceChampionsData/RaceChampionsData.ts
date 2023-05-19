@@ -77,7 +77,6 @@ export interface RaceChampionsData {
     race: string;
     driverName: string;
     driverFamilyName: string;
-    nationality: string;
     team: string;
   }[];
 }
