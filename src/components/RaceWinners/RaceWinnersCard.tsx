@@ -1,7 +1,6 @@
 import { RaceChampionsData } from "../../types/RaceChampionsData/RaceChampionsData";
 import Card from "../Card/Card";
-import styles from "../ListOfChampions/RaceWinners.module.css";
-import clsx from "clsx";
+import styles from "../RaceWinners/RaceWinnersCard.module.css";
 
 type Props = {
   champions: RaceChampionsData;
@@ -9,28 +8,20 @@ type Props = {
   worldChampionId: string;
 };
 
-export default function ChampionsList({ champions, worldChampionId }: Props) {
+export default function RaceWinners({ champions, worldChampionId }: Props) {
   return (
     <div>
       <h2 className={styles.header}>{champions.season}: RACES WINNERS</h2>
       <ul>
         {champions.races.map((race) => (
-          <li>
+          <li key={race.race}>
             <Card
               race={race.race}
               name={race.driverName}
               familyName={race.driverFamilyName}
               team={race.team}
-              className={clsx(
-                race.driverId === worldChampionId
-                  ? styles.card
-                  : styles.highlight
-              )}
-              image={clsx(
-                race.driverId === worldChampionId
-                  ? "https://i.ibb.co/rvZ0pDb/trophy-1f3c6.png"
-                  : "https://i.ibb.co/0JpkVxK/favicon.png"
-              )}
+              isHighlighted={race.driverId === worldChampionId}
+              icon={race.driverId === worldChampionId ? "trophy" : "flag"}
             />
           </li>
         ))}

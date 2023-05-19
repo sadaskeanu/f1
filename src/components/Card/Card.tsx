@@ -1,5 +1,7 @@
 import styles from "./Card.module.css";
 import clsx from "clsx";
+import trophySrc from "./assets/trophy.png";
+import flagSrc from "./assets/flag.png";
 
 type Props = {
   name: string;
@@ -8,14 +10,26 @@ type Props = {
   season?: string;
   points?: string;
   race?: string;
-  className?: string;
-  image?: string;
+  icon: "trophy" | "flag";
+  isHighlighted: boolean;
+};
+
+const mapIconToSrc = {
+  trophy: trophySrc,
+  flag: flagSrc,
 };
 
 export default function Card(props: Props) {
   return (
-    <div className={props.className}>
-      <img alt="trophy icon" src={props.image} height="50" />
+    <div
+      className={clsx(styles.card, props.isHighlighted && styles.isHighlighted)}
+    >
+      <img
+        className={styles.icon}
+        alt="icon"
+        src={mapIconToSrc[props.icon]}
+        height="50"
+      />
 
       <div className={styles.column}>
         <p>
@@ -26,7 +40,7 @@ export default function Card(props: Props) {
       {props.points && props.season && (
         <>
           <div className={styles.column}>
-            <p>season: {props.season}</p>
+            <p className={styles.none}>season: {props.season}</p>
             <p className={styles.sideText}>points: {props.points}</p>
           </div>
           <div className={clsx(styles.arrow, styles.right)}></div>
@@ -35,8 +49,8 @@ export default function Card(props: Props) {
       {props.race && (
         <>
           <div className={styles.column}>
-            <p className={styles.sideText}>race:</p>
-            <p> {props.race}</p>
+            <p className={clsx(styles.sideText, styles.none)}>race:</p>
+            <p className={styles.none}> {props.race}</p>
           </div>
         </>
       )}

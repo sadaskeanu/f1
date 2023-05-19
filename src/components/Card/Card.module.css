@@ -1,3 +1,22 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 10px double rgb(173, 30, 30);
+  border-radius: 10px;
+  padding: 16px;
+  background-color: #dbaa50;
+  box-shadow: 0 15px 10px rgba(240, 236, 236, 0.1);
+  font-weight: 600;
+  width: 600px;
+  height: 100px;
+  margin: 10px;
+}
+
+.card.isHighlighted {
+  border: 10px double rgb(26, 86, 135);
+}
+
 .row {
   display: flex;
   flex-direction: row;
@@ -45,4 +64,30 @@
   transform: translate(-40%, -60%) rotate(45deg);
   width: 200%;
   height: 200%;
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 300px;
+  }
+
+  .icon {
+    height: 30px;
+  }
+
+  .sideText {
+    display: none;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .none {
+    display: none;
+  }
 }
