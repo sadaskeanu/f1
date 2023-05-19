@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { RaceChampionsData } from "../../types/RaceChampionsData/RaceChampionsData";
-import ChampionsList from "../../components/RaceWinners/RaceWinnersCard";
+import ChampionsList from "../../components/RaceWinners/RaceWinners";
 import { getListChampions, getWorldChampion } from "../../api/GetChampions";
 import { useNavigate, useParams } from "react-router-dom";
 import BackLink from "../../components/BackLink/BackLink";
@@ -15,8 +15,7 @@ export default function Champions() {
   let [worldChampion, setWorldChampion] = useState<WorldChampionData | null>(
     null
   );
-  // let { season } = useParams<{ season: string }>();
-  let season = "2005";
+  let { season } = useParams<{ season: string }>();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export default function Champions() {
     }
 
     setIsLoading(true);
-    console.log(champions);
+
     Promise.all([getListChampions(season), getWorldChampion(season)])
       .then(([champions, worldChampion]) => {
         setChampions(champions);
@@ -38,6 +37,8 @@ export default function Champions() {
       .catch(() => {
         setHasError(true);
       });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!champions || !worldChampion || isLoading) return <Loader />;

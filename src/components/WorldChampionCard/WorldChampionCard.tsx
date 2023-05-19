@@ -1,6 +1,5 @@
 import { WorldChampionData } from "../../types/ChampionCardData/WorldChampionData";
 import Card from "../Card/Card";
-import styles from "../RaceWinners/RaceWinnersCard.module.css";
 
 export default function WorldChampionCard({
   champion,

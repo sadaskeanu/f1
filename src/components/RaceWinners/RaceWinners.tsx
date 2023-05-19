@@ -1,6 +1,6 @@
 import { RaceChampionsData } from "../../types/RaceChampionsData/RaceChampionsData";
 import Card from "../Card/Card";
-import styles from "../RaceWinners/RaceWinnersCard.module.css";
+import styles from "../RaceWinners/RaceWinners.module.css";
 
 type Props = {
   champions: RaceChampionsData;
