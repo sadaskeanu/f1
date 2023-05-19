@@ -16,6 +16,7 @@ export default function WorldChampionCard({
         team={champion.team}
         points={champion.points}
         className={styles.card}
+        image={"https://i.ibb.co/0JpkVxK/favicon.png"}
       />
     </div>
   );

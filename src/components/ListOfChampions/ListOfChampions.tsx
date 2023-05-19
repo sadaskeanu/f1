@@ -26,6 +26,11 @@ export default function ChampionsList({ champions, worldChampionId }: Props) {
                   ? styles.card
                   : styles.highlight
               )}
+              image={clsx(
+                race.driverId === worldChampionId
+                  ? "https://i.ibb.co/rvZ0pDb/trophy-1f3c6.png"
+                  : "https://i.ibb.co/0JpkVxK/favicon.png"
+              )}
             />
           </li>
         ))}

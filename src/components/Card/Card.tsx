@@ -9,16 +9,13 @@ type Props = {
   points?: string;
   race?: string;
   className?: string;
+  image?: string;
 };
 
 export default function Card(props: Props) {
   return (
     <div className={props.className}>
-      <img
-        alt="trophy icon"
-        src="https://i.ibb.co/0JpkVxK/favicon.png"
-        height="50"
-      />
+      <img alt="trophy icon" src={props.image} height="50" />
 
       <div className={styles.column}>
         <p>
