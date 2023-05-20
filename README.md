@@ -1,3 +1,5 @@
+[DEMO](https://reliable-buttercream-474625.netlify.app/)
+
 ## Installation
 
 To install the application, clone the repository from GitHub:
