@@ -11,7 +11,8 @@ type Props = {
   points?: string;
   race?: string;
   icon: "trophy" | "flag";
-  isHighlighted: boolean;
+  isHighlighted?: boolean;
+  withArrow?: boolean;
 };
 
 const mapIconToSrc = {
@@ -24,12 +25,7 @@ export default function Card(props: Props) {
     <div
       className={clsx(styles.card, props.isHighlighted && styles.isHighlighted)}
     >
-      <img
-        className={styles.icon}
-        alt="icon"
-        src={mapIconToSrc[props.icon]}
-        height="50"
-      />
+      <img alt="icon" src={mapIconToSrc[props.icon]} height={50} />
 
       <div className={styles.column}>
         <p>
@@ -37,23 +33,22 @@ export default function Card(props: Props) {
         </p>
         <p className={styles.sideText}>{props.team}</p>
       </div>
+
       {props.points && props.season && (
-        <>
-          <div className={styles.column}>
-            <p className={styles.none}>season: {props.season}</p>
-            <p className={styles.sideText}>points: {props.points}</p>
-          </div>
-          <div className={clsx(styles.arrow, styles.right)}></div>
-        </>
+        <div className={styles.column}>
+          <p>season: {props.season}</p>
+          <p className={styles.sideText}>points: {props.points}</p>
+        </div>
       )}
+
       {props.race && (
-        <>
-          <div className={styles.column}>
-            <p className={clsx(styles.sideText, styles.none)}>race:</p>
-            <p className={styles.none}> {props.race}</p>
-          </div>
-        </>
+        <div className={styles.column}>
+          <p className={styles.sideText}>race:</p>
+          <p>{props.race}</p>
+        </div>
       )}
+
+      {props.withArrow && <div className={clsx(styles.arrow, styles.right)} />}
     </div>
   );
 }

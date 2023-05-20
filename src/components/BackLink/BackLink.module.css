@@ -1,38 +1,26 @@
 .wrap {
-  margin-top: 20px;
-  margin-left: 15px;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .link {
-  margin-top: 10px;
   font-weight: 500;
 }
 
-.link:hover {
-  color: rgb(173, 30, 30);
-}
-
 .arrow {
+  position: relative;
   margin-top: 20px;
   width: 20px;
   height: 20px;
-  background: transparent;
   border-top: 3px solid rgb(29, 24, 24);
   border-right: 3px solid rgb(29, 24, 24);
-  box-shadow: 0 0 0 lightgray;
-  transition: all 200ms ease;
+  transition: box-shadow 200ms ease, border-color 200ms ease;
 }
 
 .left {
   left: 0;
   transform: translate3d(0, -50%, 0) rotate(-135deg);
-}
-
-.arrow:hover {
-  border-color: rgb(173, 30, 30);
-  box-shadow: 3px -3px 0 rgb(29, 24, 24);
 }
 
 .arrow:before {
@@ -41,6 +29,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-40%, -60%) rotate(45deg);
-  width: 200%;
-  height: 200%;
+}
+
+.wrap:hover .arrow {
+  border-color: rgb(173, 30, 30);
+  box-shadow: 3px -3px 0 rgb(29, 24, 24);
+}
+
+.wrap:hover .link {
+  color: rgb(173, 30, 30);
 }

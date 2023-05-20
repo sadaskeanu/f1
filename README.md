@@ -3,7 +3,7 @@
 To install the application, clone the repository from GitHub:
 
 ```bash
-git clone https://github.com/boekenenbroeken/shifty-chase.git
+git clone https://github.com/sadaskeanu/f1.git
 ```
 
 Then, navigate to the project directory and run the following command to install dependencies:

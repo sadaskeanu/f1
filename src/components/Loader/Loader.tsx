@@ -1,11 +1,11 @@
-import styles from "../Loader/Loader.module.css";
 import flagSrc from "./assets/flag.png";
+import styles from "./Loader.module.css";
 
 export default function Loader() {
   return (
     <div>
-      <img className={styles.rotate} src={flagSrc} alt="loader" />
-      <p className={styles.loaderText}>LOADING...</p>
+      <img className={styles.icon} src={flagSrc} alt="loader" width={100} />
+      <p className={styles.text}>LOADING...</p>
     </div>
   );
 }
