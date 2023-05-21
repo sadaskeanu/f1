@@ -1,5 +1,11 @@
 [DEMO](https://reliable-buttercream-474625.netlify.app/)
 
+Web application presents a list that shows the F1 world champions starting from 2005 until
+now. Clicking on an item shows the list of the winners for every race for the
+selected year.
+
+Design was inspired by retro F1 posters.
+
 ## Installation
 
 To install the application, clone the repository from GitHub:
@@ -10,9 +16,7 @@ git clone https://github.com/sadaskeanu/f1.git
 
 Then, navigate to the project directory and run the following command to install dependencies:
 
-```bash
-npm install
-```
+### `npm install`
 
 ## Usage
 
