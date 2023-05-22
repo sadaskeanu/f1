@@ -1,5 +1,7 @@
 [DEMO](https://reliable-buttercream-474625.netlify.app/)
 
+![F1 Poster](/assets/reference.jpeg "Reference")
+
 Web application presents a list that shows the F1 world champions starting from 2005 until
 now. Clicking on an item shows the list of the winners for every race for the
 selected year.
